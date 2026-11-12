@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="author" content="Bruno Vitor Luna Gouveia">
+<title>Vértice Tributário: novo endereço</title>
+<style>
+  body{margin:0;min-height:100vh;display:grid;place-items:center;background:#edf1f6;color:#1b2631;font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  main{max-width:34rem;padding:2rem}
+  h1{font-size:1.5rem;margin:0 0 .5rem}
+  a{color:#1b2631;font-weight:600}
+  small{display:block;margin-top:1.5rem;color:#5b6773}
+</style>
+</head>
+<body>
+<main>
+  <h1>Vértice Tributário</h1>
+  <p id="msg">O simulador mudou de endereço. Você será levado para lá em instantes.</p>
+  <p><a id="link" href="#">Abrir o Vértice Tributário no endereço novo</a></p>
+  <small>© 2026 Bruno Vitor Luna Gouveia. Todos os direitos reservados.</small>
+</main>
+<script>
+/* Endereço novo do aplicativo, terminando em barra. É a única linha a ajustar neste arquivo. */
+var DESTINO = 'https://vertice-tributario.brunolunagouveia.workers.dev/';
+(function () {
+  var pronto = DESTINO.indexOf('ENDERECO-NOVO') < 0;
+  // leva junto o perfil (?perfil=cont) e a aba (#evolucao) que vieram no endereço antigo
+  var alvo = DESTINO + location.search + location.hash, link = document.getElementById('link');
+  if (!pronto) { document.getElementById('msg').textContent = 'O simulador está mudando de endereço. Volte em instantes.'; link.style.display = 'none'; return; }
+  link.href = alvo;
+  location.replace(alvo);
+})();
+</script>
+</body>
+</html>
