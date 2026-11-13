@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Bruno Vitor Luna Gouveia">
+<title>Vértice Tributário: tutorial em vídeo (5 min)</title>
+<meta name="description" content="Como navegar pelo simulador da reforma tributária, preencher os campos editáveis, interpretar os resultados e conhecer os benefícios e as limitações (5 minutos).">
+<meta property="og:type" content="video.other">
+<meta property="og:title" content="Vértice Tributário: tutorial em vídeo (5 min)">
+<meta property="og:description" content="Como navegar pelo simulador da reforma tributária, preencher os campos editáveis, interpretar os resultados e conhecer os benefícios e as limitações (5 minutos).">
+<meta property="og:url" content="https://brunogouveia10.github.io/video/tutorial/">
+<meta property="og:image" content="https://brunogouveia10.github.io/video/tutorial/capa.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta property="og:locale" content="pt_BR">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;background:#0f1721;color:#eef2f6;font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  main{max-width:1100px;margin:0 auto;padding:28px 20px 40px}
+  .eyebrow{margin:0 0 6px;font-size:.74rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#9fb4c8}
+  h1{margin:0 0 18px;font-size:1.75rem;letter-spacing:-.015em}
+  h2{margin:26px 0 10px;font-size:1.05rem}
+  video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000;border-radius:14px;box-shadow:0 10px 40px rgba(0,0,0,.45)}
+  .acoes{margin:20px 0 14px}
+  .btn{display:inline-flex;align-items:center;min-height:44px;padding:10px 18px;border-radius:10px;background:#ffb020;color:#141c26;font-weight:700;text-decoration:none}
+  .btn:hover{background:#ffc04d}
+  .capitulos{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px;margin:0;padding:0;list-style:none}
+  .capitulos button{width:100%;min-height:44px;display:flex;gap:10px;align-items:center;text-align:left;padding:8px 12px;border:1px solid #2c3b4d;border-radius:10px;background:#16212e;color:#eef2f6;font:inherit;cursor:pointer}
+  .capitulos button:hover{border-color:#ffb020}
+  .capitulos button[aria-current="true"]{border-color:#ffb020;background:#22303f}
+  .capitulos button:focus-visible,.btn:focus-visible,a:focus-visible{outline:3px solid #ffb020;outline-offset:2px}
+  .capitulos time{flex:none;min-width:2.6em;font-variant-numeric:tabular-nums;color:#ffb020;font-weight:700}
+  .nota{margin:0 0 22px;max-width:70ch;color:#c9d6e2}
+  small{color:#9fb4c8}
+  a{color:#ffb020}
+</style>
+</head>
+<body>
+<main>
+  <p class="eyebrow">Reforma tributária · IBS e CBS · Prestadores de serviços</p>
+  <h1>Vértice Tributário: tutorial em vídeo (5 min)</h1>
+  <video id="v" controls playsinline preload="metadata" poster="capa.jpg" width="1920" height="1080">
+    <source src="Video_Vertice_Tutorial_5min.mp4" type="video/mp4">
+    Seu navegador não tocou o vídeo. <a href="Video_Vertice_Tutorial_5min.mp4">Baixe o arquivo</a>.
+  </video>
+  <p class="acoes"><a class="btn" href="https://vertice-tributario.brunolunagouveia.workers.dev/">Abrir o simulador</a></p>
+  <h2>Capítulos</h2>
+  <ol class="capitulos" id="caps">
+    <li><button type="button" data-t="0"><time>0:00</time> Abertura</button></li>
+    <li><button type="button" data-t="25.7"><time>0:25</time> Navegar pelo simulador</button></li>
+    <li><button type="button" data-t="66.1"><time>1:06</time> Preencher os dados</button></li>
+    <li><button type="button" data-t="123.3"><time>2:03</time> Interpretar os resultados</button></li>
+    <li><button type="button" data-t="221.4"><time>3:41</time> Benefícios</button></li>
+    <li><button type="button" data-t="249.7"><time>4:09</time> Limitações</button></li>
+    <li><button type="button" data-t="283.5"><time>4:43</time> Comece agora</button></li>
+  </ol>
+  <p class="nota" style="margin-top:22px">Ensina a navegar pelo simulador (perfil, alíquotas, ano, unidade e abas), a preencher os campos editáveis, a interpretar o comparativo entre os quatro regimes, a evolução até 2033 e os pontos de virada, e mostra os benefícios e as limitações. Os números do vídeo são de 13/11/2026 (perfil Arquitetura e urbanismo, ano de 2027, receita de R$ 110.000 por mês, alíquota "Mais recente"). Material didático: os valores são estimativas e não substituem parecer de tributarista.</p>
+  <small>© 2026 Bruno Vitor Luna Gouveia. Todos os direitos reservados.</small>
+</main>
+<script>
+(function(){
+  var v=document.getElementById('v'), bs=[].slice.call(document.querySelectorAll('#caps button'));
+  function ir(t){
+    var go=function(){ v.currentTime=t; var p=v.play(); if(p&&p.catch)p.catch(function(){}); v.scrollIntoView({block:'nearest',behavior:'smooth'}); };
+    if(v.readyState>=1) go(); else { v.addEventListener('loadedmetadata',go,{once:true}); v.load(); }
+  }
+  bs.forEach(function(b){ b.addEventListener('click',function(){ ir(parseFloat(b.getAttribute('data-t'))); }); });
+  v.addEventListener('timeupdate',function(){
+    var atual=0; bs.forEach(function(b,i){ if(v.currentTime>=parseFloat(b.getAttribute('data-t'))-0.05) atual=i; });
+    bs.forEach(function(b,i){ if(i===atual) b.setAttribute('aria-current','true'); else b.removeAttribute('aria-current'); });
+  });
+})();
+</script>
+</body>
+</html>
